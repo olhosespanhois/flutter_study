@@ -8,15 +8,16 @@ class ListProductMoreSale extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           Text(
             'Mais Vendidos',
-            textAlign: TextAlign.left,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 25,
               fontWeight: FontWeight.bold,
               height: 5,
             ),
+            textAlign: TextAlign.left,
           ),
           ProductListLdj(),
         ],

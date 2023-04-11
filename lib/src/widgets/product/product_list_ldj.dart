@@ -17,6 +17,8 @@ class ProductListLdj extends StatelessWidget {
           ColumnNameProd(
             nameProd: 'Nome do Produto',
             sizeNameProd: 20,
+            price: 500.00,
+            offer: false,
           ),
         ],
       ),

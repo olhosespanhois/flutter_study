@@ -16,6 +16,7 @@ class ProductTitleLdj extends StatelessWidget {
           fontWeight: FontWeight.w700,
           fontSize: sizeNameProd,
         ),
+        textDirection: TextDirection.ltr,
       ),
     );
   }
