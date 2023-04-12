@@ -1,4 +1,5 @@
-import 'package:flutter/gestures.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:screen_browser_application/src/about/about_page.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
       scrollBehavior: AppScrollBehavior(),
-      title: 'A Lodjinha estudo',
+      title: 'A Lojinha estudo',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
