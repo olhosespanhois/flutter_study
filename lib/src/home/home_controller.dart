@@ -1,8 +1,8 @@
-//import 'package:dio/dio.dart';
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+
+import 'models/category_model.dart';
 //import 'package:http/http.dart' as http;
 
 class HomeController {
@@ -16,19 +16,21 @@ class HomeController {
   ];
 
   getBanner() async {
-    const url = 'localhost:3001/category';
+    const url =
+        'https://directus-production-e852.up.railway.app/items/categories';
     try {
-      final response = await dio.get('localhost:3001/product');
+      final response = await dio.get(url);
       if (response.statusCode == 200) {
-        log(response.data.toString());
-        final decodedResponse =
-            jsonDecode(response.data) as Map<String, dynamic>;
-        print(decodedResponse);
+        CategoryModel categoryModel =
+            CategoryModel.fromJson(response.data as Map<String, dynamic>);
+        log('id: ${categoryModel.data[0].id}');
+        log('name: ${categoryModel.data[0].name}');
+        log('imageUrl: ${categoryModel.data[0].imageUrl}');
       } else {
-        print('error');
+        log('error');
       }
-    } catch (e) {
-      print(e);
+    } catch (e, s) {
+      log('ERRO: ', error: e, stackTrace: s);
     }
   }
 }
