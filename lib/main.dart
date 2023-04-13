@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:screen_browser_application/src/about/about_page.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
-      title: 'A Lojinha estudo',
+      scrollBehavior: AppScrollBehavior(),
+      title: 'A Lodjinha estudo',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
@@ -35,4 +37,12 @@ class MyApp extends StatelessWidget {
       home: const HomePage(),
     );
   }
+}
+
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

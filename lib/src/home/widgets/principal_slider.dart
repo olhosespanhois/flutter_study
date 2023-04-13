@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:image_network/image_network.dart';
 
 class PrincipalSlider extends StatelessWidget {
-  final pc = PageController(initialPage: 1);
-  PrincipalSlider({super.key});
-
+  const PrincipalSlider({super.key, required this.imgList});
+  final List<String> imgList;
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blue,
       width: MediaQuery.of(context).size.width,
-      height: 90,
+      height: 150,
       child: PageView.builder(
-        itemCount: 2,
+        itemCount: imgList.length,
         pageSnapping: true,
         itemBuilder: (context, index) {
-          return Text(
-            'Banner $index',
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              height: 5,
-            ),
+          return ImageNetwork(
+            image: imgList[index],
+            height: 150,
+            width: MediaQuery.of(context).size.width,
+            duration: 1500,
+            fitAndroidIos: BoxFit.contain,
+            fitWeb: BoxFitWeb.contain,
           );
         },
       ),
