@@ -29,6 +29,12 @@ class HomeController {
       } else {
         log('error');
       }
+    } on DioError catch (e) {
+      if (e.response != null) {
+        log(e.response!.data.toString());
+      } else {
+        log(e.message.toString());
+      }
     } catch (e, s) {
       log('ERRO: ', error: e, stackTrace: s);
     }
