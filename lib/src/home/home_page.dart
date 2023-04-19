@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    controller.getBanner();
+    // controller.getBanner();
   }
 
   @override
@@ -33,7 +33,15 @@ class _HomePageState extends State<HomePage> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              PrincipalSlider(imgList: controller.imgList),
+              FutureBuilder(
+                future: controller.getBanner(),
+                builder: (context, snapschopp) {
+                  if (snapschopp.connectionState == ConnectionState.waiting) {
+                    return const CircularProgressIndicator();
+                  }
+                  return PrincipalSlider(imgList: controller.imgList);
+                },
+              ),
               const CategoryListLdj(),
               const ListProductMoreSale(),
             ],

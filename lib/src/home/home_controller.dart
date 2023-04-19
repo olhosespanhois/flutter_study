@@ -8,12 +8,7 @@ import 'models/category_model.dart';
 class HomeController {
   final dio = Dio();
   //final dio.httpClientAdapter = BrowserClientAdapter();
-  final imgList = [
-    'http://placehold.it/900x300',
-    'http://placekitten.com/1000/300',
-    'http://placehold.it/900x300',
-    'http://placekitten.com/1000/300',
-  ];
+  List<String> imgList = [];
 
   getBanner() async {
     const url =
@@ -23,9 +18,9 @@ class HomeController {
       if (response.statusCode == 200) {
         CategoryModel categoryModel =
             CategoryModel.fromJson(response.data as Map<String, dynamic>);
-        log('id: ${categoryModel.data[0].id}');
-        log('name: ${categoryModel.data[0].name}');
-        log('imageUrl: ${categoryModel.data[0].imageUrl}');
+        for (var imgsL in categoryModel.data) {
+          imgList.add(imgsL.imageUrl);
+        }
       } else {
         log('error');
       }

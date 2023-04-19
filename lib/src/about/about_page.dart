@@ -16,18 +16,44 @@ class AboutPage extends StatelessWidget {
         title: 'Sobre',
         centerTitle: true,
       ),
-      body: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            SizedBox(height: 10),
-            TagLdj(),
-            NameStore(),
-            SizedBox(height: 100),
-            Infos(),
-          ],
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 10),
+              const TagLdj(),
+              const NameStore(),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                child: Row(
+                  children: [
+                    const Flexible(
+                      flex: 2,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Nome:',
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text("OK"),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Infos(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavBarTeste(
