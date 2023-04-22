@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lodjinha/src/about/about_controller.dart';
-import 'package:lodjinha/src/about/widgets/infos.dart';
-import 'package:lodjinha/src/util/my_locator.dart';
 
+import '../util/my_locator.dart';
 import '../widgets/widgets.dart';
+import 'about_controller.dart';
+import 'widgets/infos.dart';
 import 'widgets/name_store.dart';
 import 'widgets/tag.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lodjinha/src/widgets/product/product.dart';
+
+import '../../widgets/product/product_list_ldj.dart';
 
 class ListProductMoreSale extends StatelessWidget {
   const ListProductMoreSale({super.key});

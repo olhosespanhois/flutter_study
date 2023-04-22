@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:lodjinha/src/home/models/category_model.dart';
+
+import 'models/category_model.dart';
 
 class HomeController {
   final dio = Dio();

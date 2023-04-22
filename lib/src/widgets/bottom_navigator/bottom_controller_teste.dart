@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lodjinha/src/about/about_page.dart';
-import 'package:lodjinha/src/home/home_page.dart';
+
+import '../../about/about_page.dart';
+import '../../home/home_page.dart';
 
 class BottomControllerTeste {
   int selectedIndex = 0;

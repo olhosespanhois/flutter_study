@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lodjinha/src/widgets/widgets.dart';
+
+import 'bottom_controller_teste.dart';
 
 class BottomNavBarTeste extends StatefulWidget {
   final BottomControllerTeste controller;

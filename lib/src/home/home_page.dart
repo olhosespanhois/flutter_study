@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lodjinha/src/home/home_controller.dart';
-import 'package:lodjinha/src/util/my_locator.dart';
 
+import '../util/my_locator.dart';
 import '../widgets/widgets.dart';
+import 'home_controller.dart';
 import 'widgets/widgets_home.dart';
 
 class HomePage extends StatefulWidget {
