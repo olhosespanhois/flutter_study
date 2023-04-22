@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:screen_browser_application/src/home/home_controller.dart';
-import 'package:screen_browser_application/src/util/locator.dart';
+import 'package:lodjinha/src/home/home_controller.dart';
+import 'package:lodjinha/src/util/my_locator.dart';
 
 import '../widgets/widgets.dart';
 import 'widgets/widgets_home.dart';
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // controller.getBanner();
+    controller.getBanner();
   }
 
   @override
@@ -35,11 +35,15 @@ class _HomePageState extends State<HomePage> {
             children: [
               FutureBuilder(
                 future: controller.getBanner(),
-                builder: (context, snapschopp) {
-                  if (snapschopp.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return const Center(child: Text('Erro ao carregar'));
+                    }
+                    return PrincipalSlider(imgList: controller.imgList);
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
                   }
-                  return PrincipalSlider(imgList: controller.imgList);
                 },
               ),
               const CategoryListLdj(),
@@ -47,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             ],
           )),
       bottomNavigationBar: BottomNavBarTeste(
-        controller: Locator.getController(),
+        controller: MyLocator.getController(),
       ),
     );
   }

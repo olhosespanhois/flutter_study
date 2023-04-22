@@ -1,14 +1,12 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-
-import 'models/category_model.dart';
-//import 'package:http/http.dart' as http;
+import 'package:lodjinha/src/home/models/category_model.dart';
 
 class HomeController {
   final dio = Dio();
-  //final dio.httpClientAdapter = BrowserClientAdapter();
-  List<String> imgList = [];
+
+  final imgList = <String>[];
 
   getBanner() async {
     const url =
@@ -18,17 +16,15 @@ class HomeController {
       if (response.statusCode == 200) {
         CategoryModel categoryModel =
             CategoryModel.fromJson(response.data as Map<String, dynamic>);
-        for (var imgsL in categoryModel.data) {
-          imgList.add(imgsL.imageUrl);
+        log('id: ${categoryModel.data[0].id}');
+        log('name: ${categoryModel.data[0].name}');
+        log('imageUrl: ${categoryModel.data[0].imageUrl}');
+
+        for (var element in categoryModel.data) {
+          imgList.add(element.imageUrl);
         }
       } else {
         log('error');
-      }
-    } on DioError catch (e) {
-      if (e.response != null) {
-        log(e.response!.data.toString());
-      } else {
-        log(e.message.toString());
       }
     } catch (e, s) {
       log('ERRO: ', error: e, stackTrace: s);

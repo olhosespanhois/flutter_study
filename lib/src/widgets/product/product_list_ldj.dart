@@ -12,7 +12,7 @@ class ProductListLdj extends StatelessWidget {
         children: const [
           ImageProdLdj(
             imgWidth: 200,
-            imgUrl: 'images/tag.png',
+            imgUrl: 'assets/images/tag.png',
           ),
           ColumnNameProd(
             nameProd: 'Nome do Produto',
