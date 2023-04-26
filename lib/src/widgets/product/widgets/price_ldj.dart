@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class PriceLdj extends StatelessWidget {
   final double price;
-  final bool offer;
+  final double discunt;
   const PriceLdj({
     super.key,
     required this.price,
-    required this.offer,
+    required this.discunt,
   });
 
   @override
@@ -14,18 +14,18 @@ class PriceLdj extends StatelessWidget {
     return SizedBox(
       child: Column(
         children: [
-          pricevalue(offer, price),
+          pricevalue(discunt, price),
         ],
       ),
     );
   }
 }
 
-pricevalue(offer, price) {
+pricevalue(discunt, price) {
   String money = "R" r"$";
   String value = price.toString();
   String pricevalue = money + value;
-  if (offer == false) {
+  if (discunt != 0) {
     return Text(
       pricevalue,
       style: const TextStyle(

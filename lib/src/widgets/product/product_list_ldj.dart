@@ -27,12 +27,12 @@ class ProductListLdj extends StatelessWidget {
                   children: const [
                     PriceLdj(
                       price: 500.00,
-                      offer: true,
+                      discunt: 10,
                     ),
                     PriceDiscuntLdj(
                       discunt: 10,
                       price: 500.00,
-                      offerDiscunt: true,
+                      //offerDiscunt: true,
                     ),
                   ],
                 ),
